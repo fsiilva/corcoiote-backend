@@ -1,0 +1,5 @@
+Thumbs.bd
+.DS_Store
+*.log
+
+node_modules
