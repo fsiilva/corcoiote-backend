@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "target": "esnext",
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
         "noEmit": true,
         "strict": true,
         "erasableSyntaxOnly": true,
@@ -10,7 +10,8 @@
         "allowArbitraryExtensions": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "types": ["node"]
     },
     "include": ["src"]
 }
