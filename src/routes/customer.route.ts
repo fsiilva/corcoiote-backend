@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import { getAllCustomers } from '../controllers/customer.controller.ts';
+import * as CustomerControler from '../controllers/customer.controller.ts';
 
 const router = Router();
 
-router.get('/', getAllCustomers);
+router.get('/', CustomerControler.getAllCustomers);
+router.get('/:id', CustomerControler.getById);
 
 export default router;
