@@ -23,3 +23,17 @@ export function insertCustomer (name: string){
     customers.push(customer);
     return customers;
 }
+export function modifyCustomer (
+    id: number,
+    name: string,
+    status: boolean
+){
+    const customer = customers.find((customer) => customer.id === id);
+    if(!customer){
+        throw new Error(`cliente de id ${id} nao encontrado.`);
+    }
+    if(name) customer.name = name;
+    if(status !== undefined) customer.status = status;
+
+    return customer;
+}
