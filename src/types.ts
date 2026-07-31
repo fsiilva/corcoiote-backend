@@ -5,3 +5,4 @@ export type Customer = {
 }
 
 export type CreateCustomer = Pick<Customer, 'name'>;
+export type UpdateCustomer = Omit<Customer, 'id'>;
