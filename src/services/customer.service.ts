@@ -29,3 +29,12 @@ export function modifyCustomer(id: number, name: string, status: boolean) {
 
 	return customer;
 }
+
+export function removeCustomer(id: number){
+	const index = customers.findIndex((customer) => customer.id === id);
+	if (index === -1) {
+		throw new Error(`cliente de id ${id} nao encontrado.`);
+	}
+
+	customers.splice(index, 1);
+}

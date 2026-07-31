@@ -40,3 +40,9 @@ export function updateCustomer(request: Request, response: Response): void {
 	const customer = CustomersServices.modifyCustomer(id, name, status);
 	response.status(201).json(customer);
 }
+
+export function deleteCustomer(request: Request, response: Response): void{
+	const id = Number(request.params.id);
+	CustomersServices.removeCustomer(id);
+	response.status(204).send();
+}
