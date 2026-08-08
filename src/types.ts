@@ -4,5 +4,8 @@ export type Customer = {
     status: boolean;
 }
 
-export type CreateCustomer = Pick<Customer, 'name'>;
-export type UpdateCustomer = Omit<Customer, 'id'>;
+export type ValidationFieldsError = {
+    field: string;
+    message: string;
+}
+

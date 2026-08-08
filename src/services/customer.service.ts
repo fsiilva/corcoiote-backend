@@ -1,21 +1,24 @@
 import { NotFoundError } from '../erros/index.ts';
 import customers from '../mocks/customer.mock.ts';
+import type { UpdateCustomer } from '../schemas/customers.schema.ts';
 import type { Customer } from '../types.ts';
 
 export function findAllCustomer(): Customer[] {
 	return customers;
 }
 
-export function findCustomerById(id: number) {
-    const customer = customers.find(
-        (customer) => customer.id === id
-    );
+export function findCustomerById(
+	id: number
+) {
+	const customer = customers.find(
+		(customer) => customer.id === id
+	);
 
-    if (!customer) {
-        throw new NotFoundError(`Cliente de id ${id} não encontrado.`);
-    }
+	if (!customer) {
+		throw new NotFoundError(`Cliente de id ${id} não encontrado.`);
+	}
 
-    return customer;
+	return customer;
 }
 export function insertCustomer(name: string) {
 	const id = customers[customers.length - 1].id;
@@ -28,7 +31,10 @@ export function insertCustomer(name: string) {
 	customers.push(customer);
 	return customers;
 }
-export function modifyCustomer(id: number, name: string, status: boolean) {
+export function modifyCustomer(
+	id: number,
+	{ name, status }: UpdateCustomer
+) {
 	const customer = customers.find((customer) => customer.id === id);
 	if (!customer) {
 		throw new NotFoundError(`cliente de id ${id} nao encontrado.`);
@@ -39,7 +45,7 @@ export function modifyCustomer(id: number, name: string, status: boolean) {
 	return customer;
 }
 
-export function removeCustomer(id: number){
+export function removeCustomer(id: number) {
 	const index = customers.findIndex((customer) => customer.id === id);
 	if (index === -1) {
 		throw new NotFoundError(`cliente de id ${id} nao encontrado.`);
